@@ -1,6 +1,8 @@
+obj=$(APPLI).o complexe.o
+comp=gcc -Wall $(obj)
 all:$(APPLI) clean
-$(APPLI): $(APPLI).o complexe.o
-        gcc -Wall $(APPLI).o complexe.o -o $(APPLI) -lm
+$(APPLI): $(obj)
+        $(comp) complexe.o -o $(APPLI) -lm
 $(APPLI).o : $(APPLI).c complexe.h
          gcc -Wall -c $(APPLI).c
 complexe.o: complexe.c complexe.h
